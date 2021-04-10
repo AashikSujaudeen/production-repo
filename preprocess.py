@@ -71,7 +71,7 @@ class Preprocessor(object):
         logging.info('')
         logging.info("Duplicates - then: {:.2f}%".format(duplicate_percentage))
         df = df.drop(duplicates_df.index)
-        duplicates_df = df+[df.duplicated(['Questions', 'Tags'])]
+        duplicates_df = df[df.duplicated(['Questions', 'Tags'])]
         duplicate_percentage = duplicates_df.shape[0]/df.shape[0]*100
         logging.info("Duplicates - now: {:.2f}%".format(duplicate_percentage))
         return df
